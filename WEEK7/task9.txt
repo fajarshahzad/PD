@@ -1,0 +1,46 @@
+#include <iostream>
+#include <iomanip> 
+using namespace std;
+main()
+ {
+   	 int n; 
+	cout<<"Enter the count of cargo for transportation: ";
+    	cin >> n;
+    	int totalCargo = 0;
+    	int minibusCargo = 0;
+    	int truckCargo = 0;
+    	int trainCargo = 0;
+    	for (int i = 1; i < =n; i++) 
+{
+       	 int tonnage;
+	cout<<"Enter the tonnage of cargo "<<i<<": ";
+        	cin >> tonnage;
+        	totalCargo =totalCargo+ tonnage;
+        if (tonnage <= 3)
+ 	{
+            minibusCargo =miniubusCargo+ tonnage;
+       	 } 
+else if (tonnage <= 11)
+ 	{
+            truckCargo =truckCargo+ tonnage;
+        	}
+ 	else 
+	{
+            trainCargo = trainCargo+tonnage;
+        	}
+    }
+
+    float minibusCost = minibusCargo * 200.0;
+     float truckCost = truckCargo * 175.0;
+    float  trainCost = trainCargo * 120.0;
+    float   averagePricePerTon = (minibusCost + truckCost + trainCost) / totalCargo;
+    float   minibusPercentage = (minibusCargo) / totalCargo) * 100.0;
+    float  truckPercentage = (truckCargo) / totalCargo) * 100.0;
+    float   trainPercentage = (trainCargo) / totalCargo) * 100.0;
+    cout << fixed << setprecision(2);
+    cout << averagePricePerTon << endl;
+    cout << minibusPercentage << "%" << endl;
+    cout << truckPercentage << "%" << endl;
+    cout << trainPercentage << "%" << endl;
+
+}

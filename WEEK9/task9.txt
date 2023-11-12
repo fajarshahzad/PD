@@ -1,0 +1,42 @@
+#include <iostream>
+
+const int MAX_WORDS = 100; // Adjust the maximum number of words as needed
+
+std::string longestDisplayableWord(const std::string words[], int numWords) {
+    std::string longestWord;
+
+    for (int i = 0; i < numWords; ++i) {
+        bool isValid = true;
+
+        // Check if the word contains any of the ineligible letters
+        for (char letter : words[i]) {
+            if (letter == 'k' || letter == 'm' || letter == 'v' || letter == 'w' || letter == 'x') {
+                isValid = false;
+                break;
+            }
+        }
+
+        // If the word is valid and longer than the current longest word, update the longest word
+        if (isValid && words[i].length() > longestWord.length()) {
+            longestWord = words[i];
+        }
+    }
+
+    return longestWord;
+}
+
+int main() {
+    // Example usage
+    const int MAX_NUM_WORDS = 6;
+    std::string words[MAX_NUM_WORDS] = {"hello", "world", "programming", "example", "knowledge", "keyboard"};
+
+    std::string result = longestDisplayableWord(words, MAX_NUM_WORDS);
+
+    if (!result.empty()) {
+        std::cout << "Longest displayable word: " << result << std::endl;
+    } else {
+        std::cout << "No eligible words." << std::endl;
+    }
+
+    return 0;
+}

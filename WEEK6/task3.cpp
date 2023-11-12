@@ -1,0 +1,69 @@
+#include<iostream>
+using namespace std; 
+string findZodiacSign(int day , string month);
+main()
+{
+	int day;
+	cout<<"Enter the day of birth: ";
+	cin>>day;
+	string month;
+	cout<<"Enter the month of birth (e.g., January, February): ";
+	cin>>month;
+	string result=findZodiacSign(day,month);
+	cout<<"Zodiac Sign: "<<result;
+}
+string findZodiacSign(int day , string month)
+{
+	string result;
+	if((day>=21 && month=="March") || (day<=19 && month =="April"))
+	{
+	result="Aries";
+	}
+	else if((day>=20&&month=="April") || (day<=20 && month =="May"))
+	{
+	result="Taurus";
+	}
+	else if((day>=21 && month =="May") || ( day <= 20 && month=="June"))
+	{
+	result="Gemini";
+	}
+	else if((day>=21 && month=="June") || (day<=22 && month =="July"))
+	{
+	result="Cancer";
+	}
+	else if((day>=23 && month=="July") || (day<= 22 && month=="August"))
+	{
+	result="Leo";
+	}
+	else if((day>=23 && month=="August")||( day<=22 && month=="September"))
+	{
+	result="Virgo";
+	}
+	else if((day>=23 && month=="September") || ( day<=22 && month =="October"))
+	{
+	result="Libra";
+	}
+	else if((day>= 23 && month=="October") || (day<= 21 && month =="November"))
+	{
+	result="Scorpio";
+	}
+	else if((day >=22 && month =="November")|| (day<= 21 && month =="December"))
+	{
+	result="Sagittarius";
+	}
+	else if((day>=22 && month =="December")||( day<=19 && month =="January"))
+	{
+	result="Capricorn";
+	}
+	else if((day>=20 && month=="January")||(day<=18 && month=="February"))
+	{
+	result="Aquarius";
+	}
+	else if((day>=19 && month=="February")||(day<=20 && month=="March"))
+	{
+		result="Pisces";
+	}
+	return result;
+}
+
+

@@ -1,0 +1,16 @@
+#include<iostream>
+using namespace std;
+main()
+{
+	int visitDays;
+	cout<<"Enter Number of days you visited hospital: ";
+	cin>>visitDays;
+	int treatedPatients=0;
+	int untreatedPatients=0;
+	for(int i=1;i<=visitDays;i++)
+	{
+	int n;
+	cout<<"Number of patients who visited hospital on Day "<<i<<": ";
+	cin>>n;
+	}
+}

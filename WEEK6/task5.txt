@@ -1,0 +1,87 @@
+#include<iostream>
+using namespace std;
+float calculateFruitPrice(string fruit, string day, int quantity;
+main()
+{
+    string fruit;
+    cin >> fruit;
+    string day;
+    cin >> day;
+    int   quantity;
+    cin >> quantity;
+    float result;
+    result = calculateFruitPrice(fruit, day, quantity);
+    cout << result;
+}
+float calculateFruitPrice(string fruit, string day, int quantity)
+{
+    float result;
+    if (day == "Sunday" || day== "Saturday")
+    {
+        if (fruit == "banana")
+	{
+           	 result = quantity * 2.70;
+	}
+        if (fruit == "apple")
+	{
+            	result = quantity * 1.25;
+	}
+        if (fruit == "orange")
+	{
+           	 result= quantity * 0.90;
+	}
+        if (fruit == "grapefruit")
+	{
+            	result = quantity * 1.60;
+	}
+        if (fruit == "kiwi")
+	{
+           	 result = quantity * 3.00;
+	}
+        if (fruit == "pineapple")
+	{
+            	result = quantity * 5.60;
+	}
+        if (fruit == "grapes")
+	{
+            	result = quantity * 4.20;
+	}
+	return result;
+    }
+  else if(day=="Monday" || day=="Tuesday" || day=="Wednesday" || day=="Thursday" || day=="Friday")
+    {
+        if (fruit == "banana")
+	{
+           	 result = quantity * 2.50;
+	}
+        if (fruit == "apple")
+	{
+            	result = quantity * 1.20;
+	}
+        if (fruit == "orange")
+	{
+           	 result = quantity * 0.85;
+	}
+        if (fruit == "grapefruit")
+	{
+           	 result = quantity * 1.45;
+	}
+        if (fruit == "kiwi")
+	{
+            	result = quantity * 2.70;
+	}
+        if (fruit == "pineapple")
+	{
+            	result = quantity * 5.50;
+	}
+        if (fruit == "grapes")
+	{
+            	result = quantity * 3.85;
+	}
+    return result;
+}
+else
+{
+	cout<<"error";
+}
+}

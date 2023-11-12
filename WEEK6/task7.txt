@@ -1,0 +1,61 @@
+#include <iostream>
+#include <windows.h>
+string checkStudentStatus(int examHour,int examMinutes,int studentHour,int studentMinutes);
+using namespace std;
+ main()
+{
+	int examHour;
+	cout<<"Enter Exam Starting Time (hour): ";
+	cin>>examHour;
+	int examMinutes;
+	cout<<"Enter Exam Starting Time(minutes): ";
+	cin>>examMinutes;
+	int studentHour;
+	cout<<"Enter Student hour of arrival: ";
+	cin>>studentHour;
+	int studentMinutes;
+	cout<<"Enter Student minutes of arrival: ";
+	cin>>studentMinutes;
+	string result= checkStudentStatus( examHour, examMinutes, studentHour, studentMinutes);
+	cin>>result;
+}
+
+string checkStudentStatus(int examHour,int examMinutes,int studentHour,int studentMinutes)
+{
+	string result;
+    	int examStartTimeInMinutes = examHour * 60 + examMinute;
+    	int arrivalTimeInMinutes = studentHour * 60 + studentMinute;
+    if (arrivalTimeInMinutes > examStartTimeInMinutes)
+	 {
+       result="Late";
+	}
+        int minutesLate = arrivalTimeInMinutes - examStartTimeInMinutes;
+        if (minutesLate >= 60)
+	 {
+            int hoursLate = minutesLate / 60;
+            minutesLate %= 60;
+            cout<<hoursLate << ":"<< minutesLate<< " hours after the start" << endl;
+        } 
+else {
+            cout << minutesLate << " minutes after the start" << endl;
+        }
+    }
+ else if (examStartTimeInMinutes - arrivalTimeInMinutes > 30)
+ {
+        cout << "Early" << endl;
+        int minutesEarly = examStartTimeInMinutes - arrivalTimeInMinutes;
+        if (minutesEarly >= 60)
+ {
+            int hoursEarly = minutesEarly / 60;
+            minutesEarly %= 60;
+            cout  << hoursEarly << ":" << minutesEarly << " hours before the start" << endl;
+        } else
+ {
+            cout << minutesEarly << " minutes before the start" << endl;
+        }
+    } else {
+        cout << "On time" << endl;
+    }
+
+    return 0;
+}
