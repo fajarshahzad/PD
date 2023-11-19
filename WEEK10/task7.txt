@@ -1,0 +1,68 @@
+#include <iostream>
+
+void customSort(int arr[], int size) {
+    // Simple sorting algorithm (e.g., bubble sort)
+    for (int i = 0; i < size - 1; ++i) {
+        for (int j = 0; j < size - i - 1; ++j) {
+            if (arr[j] > arr[j + 1]) {
+                // Swap elements
+                int temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
+}
+
+bool hasDuplicates(int arr[], int size) {
+    // Check for duplicates
+    for (int i = 1; i < size; ++i) {
+        if (arr[i] == arr[i - 1]) {
+            return true; // Duplicate found
+        }
+    }
+    return false;
+}
+
+bool canBeConsecutive(int arr[], int size) {
+    // Sort the array
+    customSort(arr, size);
+
+    // Check for duplicates
+    if (hasDuplicates(arr, size)) {
+        return false;
+    }
+
+    // Check if elements form a consecutive list
+    for (int i = 1; i < size; ++i) {
+        if (arr[i] != arr[i - 1] + 1) {
+            return false; // Non-consecutive elements found
+        }
+    }
+
+    // All conditions satisfied
+    return true;
+}
+
+int main() {
+    // Example usage
+    int arr1[] = {4, 2, 1, 3, 5};
+    int size1 = sizeof(arr1) / sizeof(arr1[0]);
+
+    if (canBeConsecutive(arr1, size1)) {
+        std::cout << "The array can be rearranged to form a consecutive list." << std::endl;
+    } else {
+        std::cout << "The array cannot be rearranged to form a consecutive list." << std::endl;
+    }
+
+    int arr2[] = {1, 2, 3, 4, 4, 5};
+    int size2 = sizeof(arr2) / sizeof(arr2[0]);
+
+    if (canBeConsecutive(arr2, size2)) {
+        std::cout << "The array can be rearranged to form a consecutive list." << std::endl;
+    } else {
+        std::cout << "The array cannot be rearranged to form a consecutive list." << std::endl;
+    }
+
+    return 0;
+}

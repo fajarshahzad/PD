@@ -1,42 +1,41 @@
 #include <iostream>
-
-const int MAX_WORDS = 100; // Adjust the maximum number of words as needed
-
-std::string longestDisplayableWord(const std::string words[], int numWords) {
-    std::string longestWord;
-
-    for (int i = 0; i < numWords; ++i) {
-        bool isValid = true;
-
-        // Check if the word contains any of the ineligible letters
-        for (char letter : words[i]) {
-            if (letter == 'k' || letter == 'm' || letter == 'v' || letter == 'w' || letter == 'x') {
-                isValid = false;
-                break;
-            }
-        }
-
-        // If the word is valid and longer than the current longest word, update the longest word
-        if (isValid && words[i].length() > longestWord.length()) {
+using namespace std;
+string longestDisplayableWord(string words[], int);
+bool isValid(string);
+string longestDisplayableWord(string words[], int numWords) 
+{
+	string longestWord="";
+    for (int i = 0; i < numWords; i++) 
+	{
+        if (isValid(words[i]) && words[i].length() >=numWords&&words[i].length()> longestWord.length()) 
+		{
             longestWord = words[i];
         }
     }
-
     return longestWord;
 }
-
-int main() {
-    // Example usage
-    const int MAX_NUM_WORDS = 6;
-    std::string words[MAX_NUM_WORDS] = {"hello", "world", "programming", "example", "knowledge", "keyboard"};
-
-    std::string result = longestDisplayableWord(words, MAX_NUM_WORDS);
-
-    if (!result.empty()) {
-        std::cout << "Longest displayable word: " << result << std::endl;
-    } else {
-        std::cout << "No eligible words." << std::endl;
+bool isValid(string word)
+{
+	for (int  i = 0; i < word.length(); i++)
+    {
+        if (word[i] == 'k' || word[i] == 'm' || word[i] == 'v' || word[i] == 'w' || word[i] == 'x')
+            return false;
     }
-
-    return 0;
+    return true;
+}
+main() 
+{
+	int size;
+	cout<<"Enter the number of words: ";
+	cin>>size;
+	string words[size];
+	cout<<"Enter the words, one by one: "<<endl;
+	string element;
+	for(int i=0;i<size;i++)
+	{
+		cin>>element;
+		words[i]=element;
+	}
+    string result = longestDisplayableWord(words,size);
+    cout << "Longest 7-segment word: " << result <<endl;
 }
